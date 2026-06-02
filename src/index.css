@@ -3,67 +3,53 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    @apply bg-cream text-stone-dark font-sans;
-  }
-
-  h1, h2, h3, h4 {
-    @apply font-serif;
-  }
+  html { scroll-behavior: smooth; }
+  body { @apply bg-ivory text-forest font-sans; }
+  h1, h2, h3 { @apply font-serif; }
 }
 
 @layer components {
-  .section-divider {
-    @apply w-16 h-px bg-terracotta mx-auto my-6 opacity-60;
+  .btn-forest {
+    @apply bg-forest text-ivory font-sans font-light tracking-widest uppercase text-xs
+           px-6 py-3 inline-flex items-center gap-2
+           transition-all duration-200 hover:bg-forest-dark active:scale-95;
   }
 
-  .ornament {
-    @apply text-terracotta opacity-40 text-2xl leading-none;
+  .divider-ornament {
+    @apply flex items-center gap-3 my-4;
+  }
+  .divider-ornament::before,
+  .divider-ornament::after {
+    content: '';
+    @apply flex-1 h-px bg-sage-light;
   }
 
-  .btn-primary {
-    @apply bg-ocean-deep text-cream font-sans font-light tracking-widest uppercase text-sm
-           px-8 py-3 transition-all duration-300
-           hover:bg-ocean active:scale-95;
-  }
-
-  .btn-outline {
-    @apply border border-ocean-deep text-ocean-deep font-sans font-light tracking-widest
-           uppercase text-sm px-8 py-3 transition-all duration-300
-           hover:bg-ocean-deep hover:text-cream active:scale-95;
-  }
-
-  .card {
-    @apply bg-white/60 backdrop-blur-sm border border-sand-dark/40 rounded-sm p-6
-           shadow-sm;
+  .section-label {
+    @apply font-sans font-light tracking-ultra uppercase text-xs text-sage;
   }
 }
 
-/* Animació d'entrada */
+/* Animació entrada */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
+  from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+.fade-up { animation: fadeUp 0.8s ease both; }
+.fade-up-1 { animation-delay: 0.1s; }
+.fade-up-2 { animation-delay: 0.25s; }
+.fade-up-3 { animation-delay: 0.4s; }
+.fade-up-4 { animation-delay: 0.55s; }
+.fade-up-5 { animation-delay: 0.7s; }
 
-.fade-up {
-  animation: fadeUp 0.8s ease both;
+/* Animació shake per PIN incorrecte */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
 }
+.shake { animation: shake 0.4s ease; }
 
-.fade-up-delay-1 { animation-delay: 0.15s; }
-.fade-up-delay-2 { animation-delay: 0.3s; }
-.fade-up-delay-3 { animation-delay: 0.45s; }
-.fade-up-delay-4 { animation-delay: 0.6s; }
-
-/* PIN input puntets */
-input[type="password"]::placeholder {
-  letter-spacing: 0.1em;
-}
-
-/* Estil scrollbar suau */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #F5F0E8; }
-::-webkit-scrollbar-thumb { background: #C1714B; border-radius: 3px; }
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #FAFAF7; }
+::-webkit-scrollbar-thumb { background: #A8C49A; border-radius: 3px; }

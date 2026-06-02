@@ -1,101 +1,77 @@
-import { CEREMONY, RECEPTION, RSVP, WEDDING_DATE_DISPLAY } from '../config'
+import { CEREMONY, RECEPTION, ITINERARY } from '../config'
+import { SmallBranch } from './Botanical'
 
-function DetailCard({ icon, title, lines, href, linkLabel }) {
+function LocationCard({ time, name, address, mapsUrl }) {
   return (
-    <div className="card flex flex-col gap-3">
-      <div className="text-3xl">{icon}</div>
-      <h3 className="font-serif text-xl text-ocean-deep font-light">{title}</h3>
-      <div className="section-divider my-0 mx-0 w-10" />
-      {lines.map((line, i) => (
-        <p key={i} className="font-sans font-light text-stone text-sm leading-relaxed">
-          {line}
-        </p>
-      ))}
-      {href && (
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-ocean font-sans font-light text-xs
-                     tracking-widest uppercase mt-auto pt-2 hover:text-ocean-deep transition-colors"
-        >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-            <circle cx="12" cy="10" r="3"/>
-          </svg>
-          {linkLabel || 'Veure al mapa'}
-        </a>
-      )}
+    <div className="text-center mb-8">
+      <p className="font-serif text-2xl font-light text-forest mb-1">{time}</p>
+      <p className="font-sans font-semibold text-xs tracking-widest uppercase text-forest mb-1">{name}</p>
+      <p className="font-serif italic text-stone text-sm mb-3 leading-relaxed">{address}</p>
+      <a
+        href={mapsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn-forest"
+      >
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+        </svg>
+        Veure ubicació
+      </a>
     </div>
   )
 }
 
 export default function CeremonySection() {
   return (
-    <section id="cerimonia" className="py-24 px-6 bg-sand">
-      <div className="max-w-5xl mx-auto">
-        {/* Capçalera */}
-        <div className="text-center mb-16">
-          <p className="font-sans font-light tracking-widest text-terracotta text-xs uppercase mb-4">
-            El gran dia
-          </p>
-          <h2 className="font-serif text-5xl font-light text-ocean-deep mb-4">
-            La cerimònia
-          </h2>
-          <div className="section-divider" />
-          <p className="font-serif italic text-stone text-lg font-light">
-            {WEDDING_DATE_DISPLAY}
-          </p>
+    <section id="cerimonia" className="bg-ivory py-16 px-6">
+      <div className="max-w-sm mx-auto">
+
+        {/* Ceremony */}
+        <div className="text-center mb-3">
+          <SmallBranch className="w-24 mx-auto mb-4 opacity-70" />
+          <p className="section-label mb-2">Cerimònia religiosa</p>
+        </div>
+        <LocationCard {...CEREMONY} />
+
+        {/* Divider */}
+        <div className="divider-ornament my-8">
+          <span className="section-label">Recepció</span>
         </div>
 
-        {/* Targetes de detalls */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          <DetailCard
-            icon="⛪"
-            title="La cerimònia"
-            lines={[
-              `${CEREMONY.time}`,
-              CEREMONY.name,
-              CEREMONY.address,
-            ]}
-            href={CEREMONY.mapsUrl}
-          />
-          <DetailCard
-            icon="🥂"
-            title="El banquet"
-            lines={[
-              `${RECEPTION.time}`,
-              RECEPTION.name,
-              RECEPTION.address,
-            ]}
-            href={RECEPTION.mapsUrl}
-          />
-          <DetailCard
-            icon="👗"
-            title="Codi de vestimenta"
-            lines={[
-              RECEPTION.dresscode,
-              RECEPTION.dresscodeNote,
-            ]}
-          />
-          <DetailCard
-            icon="📩"
-            title="Confirmació d'assistència"
-            lines={[
-              `Confirma abans del ${RSVP.deadline}`,
-              RSVP.phone,
-              RSVP.email,
-            ]}
-          />
-        </div>
+        {/* Reception */}
+        <LocationCard {...RECEPTION} />
 
-        {/* Nota especial */}
-        <div className="text-center bg-white/40 border border-sand-dark/30 rounded-sm py-8 px-6">
-          <p className="ornament text-3xl mb-4">✦</p>
-          <p className="font-serif italic text-stone text-lg font-light max-w-lg mx-auto leading-relaxed">
-            "Podeu afegir aquí una cita especial, una nota per als convidats,
-            o qualsevol informació addicional que vulgueu compartir."
-          </p>
+        {/* Itinerary */}
+        <div className="mt-12">
+          <div className="divider-ornament mb-8">
+            <span className="section-label">Itinerari del dia</span>
+          </div>
+
+          {/* Watercolour background blob */}
+          <div className="relative rounded-sm overflow-hidden">
+            <div
+              className="absolute inset-0 opacity-20 pointer-events-none"
+              style={{ background: 'radial-gradient(ellipse at 50% 50%, #A8C49A 0%, transparent 70%)' }}
+            />
+            <div className="relative py-4">
+              {ITINERARY.map((item, i) => (
+                <div key={i} className="flex items-center gap-4 py-3 px-4">
+                  {/* Icon */}
+                  <span className="text-xl w-8 text-center flex-shrink-0">{item.icon}</span>
+                  {/* Dot + line */}
+                  <div className="flex flex-col items-center flex-shrink-0">
+                    <div className="w-2 h-2 rounded-full bg-forest"/>
+                    {i < ITINERARY.length - 1 && <div className="w-px flex-1 bg-sage-light mt-1" style={{height:'2rem'}}/>}
+                  </div>
+                  {/* Time */}
+                  <p className="font-serif text-base text-forest font-light w-16 flex-shrink-0">{item.time}</p>
+                  {/* Label */}
+                  <p className="font-script text-xl text-forest">{item.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
