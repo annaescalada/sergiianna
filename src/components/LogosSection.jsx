@@ -53,8 +53,8 @@ function AddressLine({ address }) {
 export default function LogosSection({ guest }) {
   return (
     <section id="detalls" className="relative py-20 px-8 overflow-hidden" style={{ background: '#EDF2E8' }}>
-      <img src={olivesBranch} className="absolute top-0 left-0 w-80 pointer-events-none" style={{ mixBlendMode: 'multiply', transform: 'scaleX(-1) rotate(180deg)' }} />
-      <img src={olivesBranch} className="absolute bottom-0 right-0 w-80 pointer-events-none" style={{ mixBlendMode: 'multiply', transform: 'scaleY(-1) rotate(180deg)' }} />
+      <img src={olivesBranch} className="absolute top-0 left-0 pointer-events-none" style={{ mixBlendMode: 'multiply', transform: 'scaleX(-1) rotate(180deg)', opacity: 0.1, width: '35em' }} />
+      <img src={olivesBranch} className="absolute bottom-0 right-0 pointer-events-none" style={{ mixBlendMode: 'multiply', transform: 'scaleY(-1) rotate(180deg)', opacity: 0.1, width: '35em' }} />
 
       <div className="max-w-sm mx-auto relative z-10">
         <h2 className="font-serif text-3xl text-pine mb-4 text-center">Els detalls...</h2>
