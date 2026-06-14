@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; font-size: 18px; }
   body { @apply bg-sand-pale text-pine font-sans; }
   h1, h2, h3 { @apply font-serif; }
 }
@@ -55,6 +55,13 @@
   40%, 80% { transform: translateX(6px); }
 }
 .shake { animation: shake 0.4s ease; }
+
+/* Page fade-in */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.fade-in { animation: fadeIn 1s ease both; }
 
 /* PinGate placeholder */
 .pin-input::placeholder { color: #ffffff; opacity: 1; letter-spacing: 0.5em; }

@@ -1,30 +1,24 @@
 import { useState } from 'react'
-import { isPinStored } from './utils/pin'
+import { isPinStored, getStoredGuest } from './utils/pin'
 import PinGate from './components/PinGate'
-import Navigation from './components/Navigation'
 import HeroSection from './components/HeroSection'
-import CeremonySection from './components/CeremonySection'
-import GiftsSection from './components/GiftsSection'
-import Footer from './components/Footer'
-import { WaveDivider, CoastalDivider } from './components/Botanical'
+import TextSection from './components/TextSection'
+import LogosSection from './components/LogosSection'
+import ParallaxSection from './components/ParallaxSection'
+import RSVPSection from './components/RSVPSection'
 
 export default function App() {
-  const [unlocked, setUnlocked] = useState(isPinStored())
+  const [guest, setGuest] = useState(isPinStored() ? getStoredGuest() : null)
 
-  if (!unlocked) return <PinGate onSuccess={() => setUnlocked(true)} />
+  if (!guest) return <PinGate onSuccess={() => setGuest(getStoredGuest())} />
 
   return (
-    <div className="min-h-screen bg-sand-pale max-w-lg mx-auto shadow-sm">
-      <Navigation />
-      <main>
-        <HeroSection />
-        <WaveDivider className="w-full -mt-1" />
-        <CeremonySection />
-        <CoastalDivider className="w-full -mt-1" />
-        <GiftsSection />
-        <WaveDivider className="w-full -mt-1" />
-      </main>
-      <Footer />
+    <div className="min-h-screen bg-sand-pale w-full fade-in">
+      <HeroSection />
+      <TextSection guest={guest} />
+      <LogosSection guest={guest} />
+      <ParallaxSection />
+      <RSVPSection />
     </div>
   )
 }

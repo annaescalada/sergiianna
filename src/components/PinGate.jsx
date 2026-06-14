@@ -1,22 +1,21 @@
 import { useState, useRef } from 'react'
-import { hashPin, storePinSuccess } from '../utils/pin'
-import { PIN_HASH, BRIDE, GROOM } from '../config'
+import { findGuest, storeGuest } from '../utils/pin'
 import pingateBg from '/Pingate.png'
 
 export default function PinGate({ onSuccess }) {
   const [pin, setPin] = useState('')
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
-  const inputRef = useRef(null)
+const inputRef = useRef(null)
 
   async function handleSubmit(e) {
     e.preventDefault()
     if (!pin.trim()) return
     setLoading(true)
     setError(false)
-    const hash = await hashPin(pin.trim())
-    if (hash === PIN_HASH) {
-      storePinSuccess()
+    const guest = await findGuest(pin.trim())
+    if (guest) {
+      storeGuest(guest)
       onSuccess()
     } else {
       setError(true)
@@ -32,7 +31,7 @@ export default function PinGate({ onSuccess }) {
       style={{ backgroundImage: `url(${pingateBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       {/* Subtle dark gradient at bottom so text is readable */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/5 to-transparent pointer-events-none" />
 
       <div className="relative z-10 text-center w-full max-w-xs">
         <h1 className="font-script text-6xl text-white leading-none mb-2">
@@ -45,7 +44,7 @@ export default function PinGate({ onSuccess }) {
         <form onSubmit={handleSubmit} className="w-full">
           <input
             ref={inputRef}
-            type="password"
+            type="text"
             inputMode="numeric"
             pattern="[0-9]*"
             value={pin}
