@@ -4,15 +4,22 @@
 
 @layer base {
   html { scroll-behavior: smooth; }
-  body { @apply bg-ivory text-forest font-sans; }
+  body { @apply bg-sand-pale text-pine font-sans; }
   h1, h2, h3 { @apply font-serif; }
 }
 
 @layer components {
-  .btn-forest {
-    @apply bg-forest text-ivory font-sans font-light tracking-widest uppercase text-xs
+  .btn-primary {
+    @apply bg-ocean text-sand-pale font-sans font-light tracking-widest uppercase text-xs
            px-6 py-3 inline-flex items-center gap-2
-           transition-all duration-200 hover:bg-forest-dark active:scale-95;
+           transition-all duration-200 hover:bg-ocean-dark active:scale-95;
+  }
+
+  /* keep btn-forest as alias so existing JSX still works */
+  .btn-forest {
+    @apply bg-ocean text-sand-pale font-sans font-light tracking-widest uppercase text-xs
+           px-6 py-3 inline-flex items-center gap-2
+           transition-all duration-200 hover:bg-ocean-dark active:scale-95;
   }
 
   .divider-ornament {
@@ -21,11 +28,11 @@
   .divider-ornament::before,
   .divider-ornament::after {
     content: '';
-    @apply flex-1 h-px bg-sage-light;
+    @apply flex-1 h-px bg-ocean-light;
   }
 
   .section-label {
-    @apply font-sans font-light tracking-ultra uppercase text-xs text-sage;
+    @apply font-sans font-light tracking-ultra uppercase text-xs text-ocean-mid;
   }
 }
 
@@ -49,7 +56,10 @@
 }
 .shake { animation: shake 0.4s ease; }
 
+/* PinGate placeholder */
+.pin-input::placeholder { color: #ffffff; opacity: 1; letter-spacing: 0.5em; }
+
 /* Scrollbar */
 ::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #FAFAF7; }
-::-webkit-scrollbar-thumb { background: #A8C49A; border-radius: 3px; }
+::-webkit-scrollbar-track { background: #FDFAF4; }
+::-webkit-scrollbar-thumb { background: #7ABDD6; border-radius: 3px; }

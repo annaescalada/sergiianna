@@ -4,8 +4,8 @@ import { SmallBranch } from './Botanical'
 function LocationCard({ time, name, address, mapsUrl }) {
   return (
     <div className="text-center mb-8">
-      <p className="font-serif text-2xl font-light text-forest mb-1">{time}</p>
-      <p className="font-sans font-semibold text-xs tracking-widest uppercase text-forest mb-1">{name}</p>
+      <p className="font-serif text-2xl font-light text-ocean mb-1">{time}</p>
+      <p className="font-sans font-semibold text-xs tracking-widest uppercase text-pine mb-1">{name}</p>
       <p className="font-serif italic text-stone text-sm mb-3 leading-relaxed">{address}</p>
       <a
         href={mapsUrl}
@@ -24,7 +24,7 @@ function LocationCard({ time, name, address, mapsUrl }) {
 
 export default function CeremonySection() {
   return (
-    <section id="cerimonia" className="bg-ivory py-16 px-6">
+    <section id="cerimonia" className="bg-sand-pale py-16 px-6">
       <div className="max-w-sm mx-auto">
 
         {/* Ceremony */}
@@ -48,26 +48,21 @@ export default function CeremonySection() {
             <span className="section-label">Itinerari del dia</span>
           </div>
 
-          {/* Watercolour background blob */}
           <div className="relative rounded-sm overflow-hidden">
             <div
               className="absolute inset-0 opacity-20 pointer-events-none"
-              style={{ background: 'radial-gradient(ellipse at 50% 50%, #A8C49A 0%, transparent 70%)' }}
+              style={{ background: 'radial-gradient(ellipse at 50% 50%, #7ABDD6 0%, transparent 70%)' }}
             />
             <div className="relative py-4">
               {ITINERARY.map((item, i) => (
                 <div key={i} className="flex items-center gap-4 py-3 px-4">
-                  {/* Icon */}
                   <span className="text-xl w-8 text-center flex-shrink-0">{item.icon}</span>
-                  {/* Dot + line */}
                   <div className="flex flex-col items-center flex-shrink-0">
-                    <div className="w-2 h-2 rounded-full bg-forest"/>
-                    {i < ITINERARY.length - 1 && <div className="w-px flex-1 bg-sage-light mt-1" style={{height:'2rem'}}/>}
+                    <div className="w-2 h-2 rounded-full bg-ocean"/>
+                    {i < ITINERARY.length - 1 && <div className="w-px flex-1 bg-ocean-light mt-1" style={{height:'2rem'}}/>}
                   </div>
-                  {/* Time */}
-                  <p className="font-serif text-base text-forest font-light w-16 flex-shrink-0">{item.time}</p>
-                  {/* Label */}
-                  <p className="font-script text-xl text-forest">{item.label}</p>
+                  <p className="font-serif text-base text-ocean font-light w-16 flex-shrink-0">{item.time}</p>
+                  <p className="font-script text-xl text-pine">{item.label}</p>
                 </div>
               ))}
             </div>

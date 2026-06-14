@@ -19,17 +19,17 @@ export default function Navigation() {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? 'bg-ivory/95 backdrop-blur-sm shadow-sm py-3' : 'bg-transparent py-4'
+      scrolled ? 'bg-sand-pale/95 backdrop-blur-sm shadow-sm py-3' : 'bg-transparent py-4'
     }`}>
       <nav className="max-w-2xl mx-auto px-6 flex items-center justify-between">
-        <a href="#hero" className="font-script text-2xl text-forest">
-          {BRIDE} <span className="font-serif text-sage-light text-lg">&</span> {GROOM}
+        <a href="#hero" className="font-script text-2xl text-pine">
+          {BRIDE} <span className="font-serif text-ocean-light text-lg">&</span> {GROOM}
         </a>
         {/* Desktop */}
         <ul className="hidden md:flex gap-8">
           {links.map(l => (
             <li key={l.href}>
-              <a href={l.href} className="section-label hover:text-forest transition-colors">
+              <a href={l.href} className="section-label hover:text-pine transition-colors">
                 {l.label}
               </a>
             </li>
@@ -37,16 +37,16 @@ export default function Navigation() {
         </ul>
         {/* Mobile */}
         <button className="md:hidden flex flex-col gap-1.5 p-1" onClick={() => setOpen(o => !o)} aria-label="Menú">
-          <span className={`block w-5 h-px bg-forest transition-all ${open ? 'rotate-45 translate-y-2' : ''}`}/>
-          <span className={`block w-5 h-px bg-forest transition-all ${open ? 'opacity-0' : ''}`}/>
-          <span className={`block w-5 h-px bg-forest transition-all ${open ? '-rotate-45 -translate-y-2' : ''}`}/>
+          <span className={`block w-5 h-px bg-pine transition-all ${open ? 'rotate-45 translate-y-2' : ''}`}/>
+          <span className={`block w-5 h-px bg-pine transition-all ${open ? 'opacity-0' : ''}`}/>
+          <span className={`block w-5 h-px bg-pine transition-all ${open ? '-rotate-45 -translate-y-2' : ''}`}/>
         </button>
       </nav>
       {open && (
-        <div className="md:hidden bg-ivory/97 border-t border-sage-light/30 px-6 py-3">
+        <div className="md:hidden bg-sand-pale/97 border-t border-ocean-light/30 px-6 py-3">
           {links.map(l => (
             <a key={l.href} href={l.href} onClick={() => setOpen(false)}
-              className="block py-3 section-label border-b border-sage-light/20 last:border-0">
+              className="block py-3 section-label border-b border-ocean-light/20 last:border-0">
               {l.label}
             </a>
           ))}

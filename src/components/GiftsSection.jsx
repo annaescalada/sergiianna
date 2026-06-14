@@ -10,7 +10,7 @@ function CopyBtn({ text, label }) {
     setTimeout(() => setDone(false), 2000)
   }
   return (
-    <button onClick={copy} className="flex items-center gap-1 text-forest hover:text-sage transition-colors">
+    <button onClick={copy} className="flex items-center gap-1 text-ocean hover:text-pine transition-colors">
       {done ? (
         <><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
         <span className="font-sans text-xs tracking-widest uppercase">Copiat!</span></>
@@ -26,7 +26,7 @@ export default function GiftsSection() {
   const waUrl = `https://wa.me/${RSVP.whatsappPhone.replace(/\D/g,'')}?text=${encodeURIComponent(RSVP.whatsappText)}`
 
   return (
-    <section id="regals" className="bg-ivory py-16 px-6">
+    <section id="regals" className="bg-sand-light py-16 px-6">
       <div className="max-w-sm mx-auto text-center">
 
         {/* Gift suggestion */}
@@ -35,8 +35,8 @@ export default function GiftsSection() {
           <span className="section-label">Suggeriment de regal</span>
         </div>
 
-        <div className="relative rounded-sm p-6 mb-8" style={{background:'linear-gradient(135deg,#EAF0E6 0%,#F5F8F3 100%)'}}>
-          <svg className="absolute top-2 right-3 w-6 h-6 text-sage-light opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <div className="relative rounded-sm p-6 mb-8" style={{background:'linear-gradient(135deg,#D4EBF5 0%,#F5EDDA 100%)'}}>
+          <svg className="absolute top-2 right-3 w-6 h-6 text-ocean-light opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <path d="M20 12v10H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
           </svg>
           <p className="font-serif italic text-stone text-sm leading-relaxed mb-5">{GIFT_TEXT}</p>
@@ -44,23 +44,23 @@ export default function GiftsSection() {
           {/* Chips */}
           <div className="flex flex-wrap gap-2 justify-center mb-5">
             {GIFT_CHIPS.map(c => (
-              <span key={c.label} className="bg-white border border-sage-light/50 text-forest font-sans text-xs px-3 py-1.5 rounded-full">
+              <span key={c.label} className="bg-sand-pale border border-ocean-light/50 text-pine font-sans text-xs px-3 py-1.5 rounded-full">
                 {c.emoji} {c.label}
               </span>
             ))}
           </div>
 
           {/* IBAN */}
-          <div className="bg-white border border-sage-light/40 rounded-sm p-4 text-left">
+          <div className="bg-sand-pale border border-ocean-light/40 rounded-sm p-4 text-left">
             <p className="section-label mb-2">Compte bancari</p>
             <div className="flex items-center justify-between gap-2 mb-2">
-              <p className="font-sans text-sm text-forest tracking-wider">{BANK.iban}</p>
+              <p className="font-sans text-sm text-pine tracking-wider">{BANK.iban}</p>
               <CopyBtn text={BANK.iban} label="Copiar" />
             </div>
-            <div className="flex items-center justify-between gap-2 border-t border-sage-light/30 pt-2">
+            <div className="flex items-center justify-between gap-2 border-t border-ocean-light/30 pt-2">
               <div>
                 <p className="font-sans text-xs text-stone-light">Concepte</p>
-                <p className="font-sans text-xs text-forest">{BANK.concept}</p>
+                <p className="font-sans text-xs text-pine">{BANK.concept}</p>
               </div>
               <CopyBtn text={BANK.concept} label="Copiar" />
             </div>
@@ -82,7 +82,7 @@ export default function GiftsSection() {
 
         {/* Adults only */}
         {ADULTS_ONLY && (
-          <div className="border-t border-sage-light/30 pt-8 mt-2">
+          <div className="border-t border-ocean-light/30 pt-8 mt-2">
             <SmallBranch className="w-16 mx-auto mb-4 opacity-50" />
             <p className="font-serif italic text-stone text-sm leading-relaxed">
               {ADULTS_ONLY_TEXT}

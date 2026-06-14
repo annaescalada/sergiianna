@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react'
 import { hashPin, storePinSuccess } from '../utils/pin'
 import { PIN_HASH, BRIDE, GROOM } from '../config'
-import { BranchTopRight, BranchBottomLeft } from './Botanical'
+import pingateBg from '/Pingate.png'
 
 export default function PinGate({ onSuccess }) {
   const [pin, setPin] = useState('')
@@ -27,50 +27,45 @@ export default function PinGate({ onSuccess }) {
   }
 
   return (
-    <div className="min-h-screen bg-ivory flex flex-col items-center justify-center px-6 relative overflow-hidden">
-      {/* Botanical decorations */}
-      <BranchTopRight className="absolute top-0 right-0 w-48 md:w-64 pointer-events-none" />
-      <BranchBottomLeft className="absolute bottom-0 left-0 w-40 md:w-56 pointer-events-none" />
+    <div
+      className="min-h-screen w-full flex flex-col items-center justify-center px-6 relative"
+      style={{ backgroundImage: `url(${pingateBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+    >
+      {/* Subtle dark gradient at bottom so text is readable */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent pointer-events-none" />
 
-      <div className="relative z-10 text-center max-w-xs w-full">
-        {/* Monogram */}
-        <p className="section-label mb-6 fade-up">Benvinguts</p>
-
-        <h1 className="font-script text-8xl text-forest leading-none mb-1 fade-up fade-up-1">
-          {BRIDE}
+      <div className="relative z-10 text-center w-full max-w-xs">
+        <h1 className="font-script text-6xl text-white leading-none mb-2">
+          Benvingut/da
         </h1>
-        <p className="font-serif text-2xl text-sage-light font-light mb-1 fade-up fade-up-1">&amp;</p>
-        <h1 className="font-script text-8xl text-forest leading-none mb-8 fade-up fade-up-2">
-          {GROOM}
-        </h1>
+        <p className="font-serif italic text-white/80 text-lg mb-8 tracking-wide">
+          Introdueix el PIN
+        </p>
 
-        <div className="divider-ornament fade-up fade-up-2">
-          <span className="section-label">PIN d'accés</span>
-        </div>
-
-        <form onSubmit={handleSubmit} className="mt-6 fade-up fade-up-3">
+        <form onSubmit={handleSubmit} className="w-full">
           <input
             ref={inputRef}
             type="password"
+            inputMode="numeric"
+            pattern="[0-9]*"
             value={pin}
             onChange={e => { setPin(e.target.value); setError(false) }}
-            maxLength={20}
-            placeholder="· · · · ·"
+            maxLength={4}
+            placeholder="••••"
             autoFocus
-            className={`
-              w-full border-b-2 bg-transparent text-center text-xl tracking-widest
-              text-forest font-serif placeholder-sage-light outline-none py-3
-              transition-colors duration-200
-              ${error ? 'border-red-400 shake' : 'border-sage-light focus:border-forest'}
-            `}
+            className={`pin-input w-full text-center text-xl tracking-widest text-white font-serif outline-none py-4 px-4 rounded-sm transition-colors duration-200 ${error ? 'shake' : ''}`}
+            style={{ background: 'transparent', border: '2px solid #ffffff', caretColor: '#ffffff' }}
           />
           {error && (
-            <p className="text-red-400 text-xs font-sans mt-2">PIN incorrecte. Torna-ho a intentar.</p>
+            <p className="text-white text-xs font-sans mt-2 tracking-widest uppercase drop-shadow">
+              PIN incorrecte
+            </p>
           )}
           <button
             type="submit"
             disabled={loading || !pin.trim()}
-            className="btn-forest mt-6 w-full justify-center disabled:opacity-40 disabled:cursor-not-allowed"
+            className="mt-4 w-full py-4 font-sans font-bold tracking-widest uppercase text-sm rounded-sm active:scale-95 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed"
+            style={{ background: '#ffffff', border: '2px solid #ffffff', color: '#3A5220' }}
           >
             {loading ? 'Verificant…' : 'Entrar'}
           </button>
