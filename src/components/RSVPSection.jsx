@@ -1,9 +1,12 @@
+import annaSergiRufus from '/anna_sergi_rufus.jpg'
+
 const WA_URL = 'https://wa.me/34689001494?text=' + encodeURIComponent('Hola! Confirmo la meva assistència a la boda d\'Anna i Sergi 🎉')
 
 export default function RSVPSection() {
   return (
     <section id="confirmacio" className="bg-sand-pale py-20 px-8">
       <div className="max-w-sm mx-auto text-center">
+        <img src={annaSergiRufus} alt="Anna, Sergi i Rufus" className="w-48 h-48 rounded-full object-cover mx-auto mb-8 shadow-md" />
         <h2 className="font-script text-5xl text-pine mb-6">Confirmació</h2>
         <p className="font-serif italic text-stone text-base leading-relaxed mb-6">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vehicula
