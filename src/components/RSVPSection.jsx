@@ -9,15 +9,12 @@ export default function RSVPSection() {
         <img src={annaSergiRufus} alt="Anna, Sergi i Rufus" className="w-48 h-48 rounded-full object-cover mx-auto mb-8 shadow-md" />
         <h2 className="font-script text-5xl text-pine mb-6">Confirmació</h2>
         <p className="font-serif italic text-stone text-base leading-relaxed mb-6">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vehicula
-          sapien at libero tincidunt, vel fermentum nulla dignissim. Agrairíem que
-          confirmeu la vostra assistència abans del 30 de juny de 2026.
+          Agrairíem que confirmeu la vostra assistència abans del 30 de juny de 2026. En confirmar, indiqueu-nos:
         </p>
         <ul className="text-left mb-10 flex flex-col gap-3">
           {[
-            'Codi de vestimenta: Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            'Al·lèrgies i intoleràncies alimentàries: Lorem ipsum dolor sit amet, consectetur adipiscing.',
-            'Regals: Lorem ipsum dolor sit amet, consectetur adipiscing elit vivamus euismod.',
+            'Codi de vestimenta: lliure, veniu com us sentiu més còmodes.',
+            'Al·lèrgies i intoleràncies alimentàries.',
           ].map((item, i) => (
             <li key={i} className="flex items-start gap-3">
               <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-pine flex-shrink-0" />
@@ -25,6 +22,28 @@ export default function RSVPSection() {
             </li>
           ))}
         </ul>
+        <div className="text-left mb-10">
+          <p className="font-serif italic text-stone text-base leading-relaxed mb-4">
+            El millor regal és compartir aquest dia amb vosaltres. Tot i així, si ens voleu fer un regal, aquests són alguns dels projectes que ens podeu ajudar a fer realitat:
+          </p>
+          <ul className="flex flex-col gap-3 mb-4">
+            {[
+              'Finalment, després de tant buscar, hem trobat el nostre pis... però ara l\'hem de comprar i reformar.',
+              'No ens podem queixar, hem viatjat molt, però des que ens vam conèixer tenim pendent visitar el Japó. Volem que el 2027 sigui l\'any en què es compleixi.',
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-pine flex-shrink-0" />
+                <span className="font-serif italic text-stone text-base leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="font-serif italic text-stone text-base leading-relaxed mb-1">
+            Número de compte: <span className="not-italic font-sans tracking-wider">{import.meta.env.VITE_ACCOUNT_NUMBER}</span>
+          </p>
+          <p className="font-serif italic text-stone text-sm leading-relaxed mt-4">
+            De tot cor, els regals són voluntaris — la vostra companyia és el millor regal. Recordeu només que si no ens regaleu res, haureu de venir amb un tupper. 😉
+          </p>
+        </div>
         <a
           href={WA_URL}
           target="_blank"

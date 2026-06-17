@@ -4,6 +4,7 @@
 // name: el seu nom (per personalitzar el missatge de benvinguda)
 // hasCeremony: true si assisteixen a la cerimònia religiosa, false si només al banquet
 export const GUESTS = [
+  { pin: '1234', name: 'Anna i Sergi', hasCeremony: true },
   { pin: '3847', name: 'Lidia i Jordi', hasCeremony: true },
   { pin: '5129', name: 'Anna i Gerard', hasCeremony: true },
   { pin: '7463', name: 'Helena i Jimmy', hasCeremony: true },

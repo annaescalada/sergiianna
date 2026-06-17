@@ -3,29 +3,29 @@ import olivesBranch from '/olives_branch.png'
 const CEREMONY = {
   title: 'Ceremònia',
   place: 'Ajuntament de Begur',
-  address: 'Plaça de l\'Ajuntament, 1, Begur',
-  mapsUrl: 'https://maps.google.com/?q=Ajuntament+de+Begur',
+  address: 'Plaça de l\'Església, 8, 17255 Begur, Girona',
+  mapsUrl: 'https://maps.google.com/?q=Plaça+de+l\'Església+8+Begur',
   time: '12:30 h',
-  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vehicula sapien at libero tincidunt.',
+  text: 'La cerimònia civil tindrà lloc a l\'Ajuntament de Begur.',
 }
 
 const RECEPTION_EVENTS = [
   {
     title: 'Aperitiu',
     time: '13:30 h',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus euismod eros ac orci convallis.',
+    text: 'Aperitiu a l\'exterior de Mas Ses Vinyes amb vistes a la Costa Brava.',
   },
   {
     title: 'Dinar',
     time: '14:30 h',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec eros vel mauris volutpat ultricies.',
+    text: 'Dinar de celebració al restaurant de Mas Ses Vinyes.',
   },
 ]
 
 const RECEPTION_PLACE = {
   place: 'Mas Ses Vinyes',
-  address: 'Carretera de Palafrugell, km 3, Begur',
-  mapsUrl: 'https://maps.google.com/?q=Mas+Ses+Vinyes+Begur',
+  address: 'Camino, Camí ses Vinyes, 15, 17255 Begur, Girona',
+  mapsUrl: 'https://www.google.com/maps/place//data=!4m2!3m1!1s0x12ba538f60a330a5:0xb29b2c1d86788c70',
 }
 
 function LocationLink({ mapsUrl }) {
@@ -52,9 +52,9 @@ function AddressLine({ address }) {
 
 export default function LogosSection({ guest }) {
   return (
-    <section id="detalls" className="relative py-20 px-8 overflow-hidden" style={{ background: '#EDF2E8' }}>
-      <img src={olivesBranch} className="absolute top-0 left-0 pointer-events-none" style={{ mixBlendMode: 'multiply', transform: 'scaleX(-1) rotate(180deg)', opacity: 0.1, width: '35em' }} />
-      <img src={olivesBranch} className="absolute bottom-0 right-0 pointer-events-none" style={{ mixBlendMode: 'multiply', transform: 'scaleY(-1) rotate(180deg)', opacity: 0.1, width: '35em' }} />
+    <section id="detalls" className="relative py-20 px-8 overflow-hidden" style={{ background: '#f3f5eb' }}>
+      <img src={olivesBranch} className="absolute top-0 left-0 pointer-events-none" style={{ mixBlendMode: 'multiply', transform: 'scaleX(-1) rotate(180deg)', opacity: 0.1, width: '30em' }} />
+      <img src={olivesBranch} className="absolute bottom-0 right-0 pointer-events-none" style={{ mixBlendMode: 'multiply', transform: 'scaleY(-1) rotate(180deg)', opacity: 0.1, width: '30em' }} />
 
       <div className="max-w-sm mx-auto relative z-10">
         <h2 className="font-serif text-3xl text-pine mb-4 text-center">Els detalls...</h2>

@@ -6,15 +6,12 @@ export default function TextSection({ guest }) {
           Hola {guest?.name},
         </p>
         <p className="font-serif italic text-stone text-base leading-relaxed mb-5">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vehicula
-          sapien at libero tincidunt, vel fermentum nulla dignissim. Vivamus euismod
-          eros ac orci convallis, ut dignissim velit facilisis.
+          <strong>Ens casem!</strong> Després de sis anys i mig d'aventures junts hem decidit fer el pas i casar-nos el proper <strong>24 de setembre</strong> a Begur, un lloc molt especial per nosaltres perquè és on fa tres anys ens vam prometre, al mirador de la Cova d'en Gispert.
         </p>
-        <p className="font-serif italic text-stone text-base leading-relaxed mb-14">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vehicula
-          sapien at libero tincidunt, vel fermentum nulla dignissim. Vivamus euismod
-          eros ac orci convallis, ut dignissim velit facilisis.
+        <p className="font-serif italic text-stone text-base leading-relaxed mb-5">
+          Volem celebrar-ho acompanyats de la nostra família, sense gaires protocols, de manera senzilla i íntima. Tot i que no us enganyarem, hem tingut la temptació de casar-nos i no dir-li a ningú, ja ens coneixeu.
         </p>
+        <p className="font-serif italic text-stone text-base leading-relaxed mb-14">Us hi esperem amb molta il·lusió,</p>
         <p className="font-script italic text-2xl text-stone">Anna i Sergi</p>
       </div>
     </section>

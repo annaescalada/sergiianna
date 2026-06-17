@@ -35,10 +35,10 @@ const inputRef = useRef(null)
 
       <div className="relative z-10 text-center w-full max-w-xs">
         <h1 className="font-script text-6xl text-white leading-none mb-2">
-          Benvingut/da
+          Benvinguts
         </h1>
         <p className="font-serif italic text-white/80 text-lg mb-8 tracking-wide">
-          Introdueix el PIN
+          Introduïu el PIN
         </p>
 
         <form onSubmit={handleSubmit} className="w-full">
