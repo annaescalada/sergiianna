@@ -1,4 +1,4 @@
-import annaSergiRufus from '/anna_sergi_rufus.jpg'
+import annaSergiRufus from '../../public/anna_sergi_rufus.jpg'
 
 const WA_URL = 'https://wa.me/34689001494?text=' + encodeURIComponent('Hola! Confirmo la meva assistència a la boda d\'Anna i Sergi 🎉')
 
