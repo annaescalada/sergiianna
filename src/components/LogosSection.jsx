@@ -6,19 +6,19 @@ const CEREMONY = {
   address: 'Plaça de l\'Església, 8, 17255 Begur, Girona',
   mapsUrl: 'https://maps.google.com/?q=Plaça+de+l\'Església+8+Begur',
   time: '12:30 h',
-  text: 'La cerimònia civil tindrà lloc a l\'Ajuntament de Begur.',
+  text: 'Hem escollit l\'Ajuntament de Begur per celebrar la cerimònia civil.',
 }
 
 const RECEPTION_EVENTS = [
   {
     title: 'Aperitiu',
     time: '13:30 h',
-    text: 'Aperitiu a l\'exterior de Mas Ses Vinyes amb vistes a la Costa Brava.',
+    text: 'Començarem amb un aperitiu al jardí del restaurant de Mas Ses Vinyes amb vistes a la Costa Brava.',
   },
   {
     title: 'Dinar',
     time: '14:30 h',
-    text: 'Dinar de celebració al restaurant de Mas Ses Vinyes.',
+    text: 'A continuació, ens asseurem tots junts a l\'interior per gaudir del dinar, un menú d\'estiu amb varies opcions per escollir.',
   },
 ]
 

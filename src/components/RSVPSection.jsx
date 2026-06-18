@@ -1,6 +1,6 @@
 import annaSergiRufus from '../../public/anna_sergi_rufus.jpg'
 
-const WA_URL = 'https://wa.me/34689001494?text=' + encodeURIComponent('Hola! Confirmo la meva assistència a la boda d\'Anna i Sergi 🎉')
+const WA_URL = 'https://wa.me/34689001494?text=' + encodeURIComponent('Hola! Confirmo l\'assistència. ¡Nos vamos de bodorrio! 🎉')
 
 export default function RSVPSection() {
   return (
@@ -9,41 +9,51 @@ export default function RSVPSection() {
         <img src={annaSergiRufus} alt="Anna, Sergi i Rufus" className="w-48 h-48 rounded-full object-cover mx-auto mb-8 shadow-md" />
         <h2 className="font-script text-5xl text-pine mb-6">Confirmació</h2>
         <p className="font-serif italic text-stone text-base leading-relaxed mb-6">
-          Agrairíem que confirmeu la vostra assistència abans del 30 de juny de 2026. En confirmar, indiqueu-nos:
+          Agrairíem que confirmeu la vostra assistència abans del 30 de juliol. I si veniu, que esperem que sí, alguns detalls a tenir en compte:
         </p>
-        <ul className="text-left mb-10 flex flex-col gap-3">
-          {[
-            'Codi de vestimenta: lliure, veniu com us sentiu més còmodes.',
-            'Al·lèrgies i intoleràncies alimentàries.',
-          ].map((item, i) => (
-            <li key={i} className="flex items-start gap-3">
-              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-pine flex-shrink-0" />
-              <span className="font-serif italic text-stone text-base leading-relaxed">{item}</span>
-            </li>
-          ))}
+        <ul className="text-left mb-10 flex flex-col gap-5">
+          <li className="flex items-start gap-3">
+            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-pine flex-shrink-0" />
+            <span className="font-serif italic text-stone text-base leading-relaxed">Feu-nos arribar les indicacions pel restaurant si teniu alguna <strong>al·lèrgia</strong> o <strong>intolerància</strong> alimentària.</span>
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-pine flex-shrink-0" />
+            <span className="font-serif italic text-stone text-base leading-relaxed"><strong>Codi de vestimenta:</strong> no n'hi ha cap de concret, sigueu vosaltres mateixos, i recordeu que correu el risc de venir més mudats que nosaltres.</span>
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-pine flex-shrink-0" />
+            <div>
+              <p className="font-serif italic text-stone text-base leading-relaxed mb-3">
+                El millor regal és compartir aquest dia amb vosaltres però si tot i així ens voleu fer un detall, aquests són alguns dels projectes que ens podeu ajudar a fer realitat:
+              </p>
+              <ul className="flex flex-col gap-3 ml-4 mb-3">
+                {[
+                  'Finalment, després de tant buscar, hem trobat el nostre pis... però ara l\'hem de pagar i reformar.',
+                  'No ens podem queixar, hem viatjat molt, però des que ens vam conèixer tenim pendent visitar el Japó i volem anar-hi de viatge de noces.',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="mt-1.5 w-1 h-1 rounded-full bg-pine-light flex-shrink-0" />
+                    <span className="font-serif italic text-stone text-base leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="font-serif italic text-stone text-sm leading-relaxed mb-2">Número de compte:</p>
+              <button
+                onClick={() => navigator.clipboard.writeText(import.meta.env.VITE_ACCOUNT_NUMBER)}
+                className="w-full flex items-center justify-between gap-3 px-4 py-3 bg-white border border-pine-pale rounded-sm font-sans text-sm tracking-wider text-stone hover:bg-sand-pale transition-colors mb-1"
+                title="Copiar IBAN"
+              >
+                <span>{import.meta.env.VITE_ACCOUNT_NUMBER}</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+              </button>
+              <p className="font-serif italic text-stone text-base leading-relaxed mt-3">
+                Estarem molt agraïts si decidiu participar en algun dels nostres projectes, però de tot cor, insistim en que la vostra companyia és el millor que ens podeu regalar aquest dia.
+              </p>
+            </div>
+          </li>
         </ul>
-        <div className="text-left mb-10">
-          <p className="font-serif italic text-stone text-base leading-relaxed mb-4">
-            El millor regal és compartir aquest dia amb vosaltres. Tot i així, si ens voleu fer un regal, aquests són alguns dels projectes que ens podeu ajudar a fer realitat:
-          </p>
-          <ul className="flex flex-col gap-3 mb-4">
-            {[
-              'Finalment, després de tant buscar, hem trobat el nostre pis... però ara l\'hem de comprar i reformar.',
-              'No ens podem queixar, hem viatjat molt, però des que ens vam conèixer tenim pendent visitar el Japó. Volem que el 2027 sigui l\'any en què es compleixi.',
-            ].map((item, i) => (
-              <li key={i} className="flex items-start gap-3">
-                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-pine flex-shrink-0" />
-                <span className="font-serif italic text-stone text-base leading-relaxed">{item}</span>
-              </li>
-            ))}
-          </ul>
-          <p className="font-serif italic text-stone text-base leading-relaxed mb-1">
-            Número de compte: <span className="not-italic font-sans tracking-wider">{import.meta.env.VITE_ACCOUNT_NUMBER}</span>
-          </p>
-          <p className="font-serif italic text-stone text-sm leading-relaxed mt-4">
-            De tot cor, els regals són voluntaris — la vostra companyia és el millor regal. Recordeu només que si no ens regaleu res, haureu de venir amb un tupper. 😉
-          </p>
-        </div>
         <a
           href={WA_URL}
           target="_blank"
