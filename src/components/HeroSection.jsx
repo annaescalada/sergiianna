@@ -9,7 +9,7 @@ export default function HeroSection() {
     >
       <div className="absolute inset-0 bg-black/10 pointer-events-none" />
       <div className="relative z-10 text-center -translate-y-24">
-        <h1 className="font-script text-8xl text-white leading-none">Anna & Sergi</h1>
+        <h1 className="font-script text-6xl md:text-8xl text-white leading-none">Anna & Sergi</h1>
         <h2 className="font-serif italic text-white/90 text-3xl mt-3 tracking-wide">
           Begur, 24 de setembre de 2026
         </h2>
