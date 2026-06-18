@@ -1,5 +1,7 @@
 import begurBg from '/Begur.png'
 
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+
 export default function ParallaxSection() {
   return (
     <div
@@ -7,8 +9,8 @@ export default function ParallaxSection() {
       style={{
         backgroundImage: `url(${begurBg})`,
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
+        backgroundPosition: 'center 20%',
+        backgroundAttachment: isMobile ? 'scroll' : 'fixed',
       }}
     />
   )
