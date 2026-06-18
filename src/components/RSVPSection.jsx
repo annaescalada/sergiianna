@@ -1,8 +1,16 @@
+import { useState } from 'react'
 import annaSergiRufus from '../../public/anna_sergi_rufus.jpg'
 
 const WA_URL = 'https://wa.me/34689001494?text=' + encodeURIComponent('Hola! Confirmo l\'assistència. ¡Nos vamos de bodorrio! 🎉')
 
 export default function RSVPSection() {
+  const [copied, setCopied] = useState(false)
+
+  function handleCopy() {
+    navigator.clipboard.writeText(import.meta.env.VITE_ACCOUNT_NUMBER)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
   return (
     <section id="confirmacio" className="bg-sand-pale py-20 px-8">
       <div className="max-w-sm mx-auto text-center">
@@ -39,14 +47,20 @@ export default function RSVPSection() {
               </ul>
               <p className="font-serif italic text-stone text-sm leading-relaxed mb-2">Número de compte:</p>
               <button
-                onClick={() => navigator.clipboard.writeText(import.meta.env.VITE_ACCOUNT_NUMBER)}
-                className="w-full flex items-center justify-between gap-3 px-4 py-3 bg-white border border-pine-pale rounded-sm font-sans text-sm tracking-wider text-stone hover:bg-sand-pale transition-colors mb-1"
+                onClick={handleCopy}
+                className={`w-full flex items-center justify-between gap-3 px-4 py-3 border rounded-sm font-sans text-sm tracking-wider transition-all duration-300 mb-1 ${copied ? 'bg-pine text-white border-pine' : 'bg-white text-stone border-pine-pale hover:bg-sand-pale'}`}
                 title="Copiar IBAN"
               >
                 <span>{import.meta.env.VITE_ACCOUNT_NUMBER}</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-                </svg>
+                {copied ? (
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                ) : (
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                  </svg>
+                )}
               </button>
               <p className="font-serif italic text-stone text-base leading-relaxed mt-3">
                 Estarem molt agraïts si decidiu participar en algun dels nostres projectes, però de tot cor, insistim en que la vostra companyia és el millor que ens podeu regalar aquest dia.
