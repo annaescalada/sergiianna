@@ -11,10 +11,10 @@ export const GUESTS = [
   { pin: '2981', name: 'Mercedes', hasCeremony: true },
   { pin: '6054', name: 'Fernando', hasCeremony: true },
   { pin: '4712', name: 'Anna i Jordi', hasCeremony: true },
-  { pin: '9325', name: 'Txus i Jordi (tiets)', hasCeremony: false },
+  { pin: '9325', name: 'Txus i Jordi', hasCeremony: false },
   { pin: '1876', name: 'Rosa i Toni', hasCeremony: false },
   { pin: '8203', name: 'Marina i David', hasCeremony: false },
   { pin: '5641', name: 'Berta', hasCeremony: false },
   { pin: '3098', name: 'Carlota i Carles', hasCeremony: false },
-  { pin: '7514', name: 'Julia i Jaume', hasCeremony: false },
+  { pin: '7514', name: 'Júlia i Jaume', hasCeremony: false },
 ]
